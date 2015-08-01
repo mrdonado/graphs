@@ -1,6 +1,7 @@
 
 body {
-    font: 10px sans-serif;
+    font: 20px sans-serif;
+    padding: 0 10px 0 50px;
 }
 
 .axis path,
@@ -18,4 +19,13 @@ body {
     fill: none;
     stroke: steelblue;
     stroke-width: 1.5px;
+}
+
+.example-container{
+    float:left;
+    clear:both;
+    margin-left:10%;
+    margin-top: 50px;
+    border: 1px solid grey;
+    padding: 10px;
 }
