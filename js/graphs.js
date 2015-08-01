@@ -83,4 +83,6 @@ function drawGraph() {
     });
 }
 
-setInterval(drawGraph, 2000);
+drawGraph();
+
+//setInterval(drawGraph, 2000);
