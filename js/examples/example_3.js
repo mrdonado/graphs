@@ -11,7 +11,7 @@ d3.tsv('js/examples/data-example-3.tsv', function(data) {
 
     var margin = { top: 30, right: 30, bottom: 40, left:50 }
 
-    var height = 400 - margin.top - margin.bottom,
+    var height = 500 - margin.top - margin.bottom,
         width = 600 - margin.left - margin.right,
         barWidth = 50,
         barOffset = 5;
@@ -40,9 +40,9 @@ d3.tsv('js/examples/data-example-3.tsv', function(data) {
         .style('background', '#E7E0CB')
         .attr('width', width + margin.left + margin.right)
         .attr('height', height + margin.top + margin.bottom)
-        .attr('viewBox', '0 0 ' + width + ' ' + height)
+        .attr('viewBox', '0 0 ' + (width + margin.left + margin.right)+ ' ' + (height + margin.top + margin.bottom))
         .attr('preserveAspectRatio', 'xMidYMid')
-        .attr('data-aspect', width/height)
+        .attr('data-aspect', (width + margin.left + margin.right)/(height + margin.top + margin.bottom))
         .append('g')
         .attr('transform', 'translate('+ margin.left +', '+ margin.top +')')
         .selectAll('rect').data(bardata)

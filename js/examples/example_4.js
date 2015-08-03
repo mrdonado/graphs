@@ -1,10 +1,7 @@
-/**
- * Created by fjrd84 on 3/8/15.
- */
-function drawGraph() {
-    $('#my-graph').empty();
+var linearGraph = function () {
+
     var margin = {top: 20, right: 20, bottom: 30, left: 50},
-        width = 960 - margin.left - margin.right,
+        width = 500 - margin.left - margin.right,
         height = 500 - margin.top - margin.bottom;
 
     var parseDate = d3.time.format("%d-%b-%y").parse;
@@ -17,7 +14,8 @@ function drawGraph() {
 
     var xAxis = d3.svg.axis()
         .scale(x)
-        .orient("bottom");
+        .orient("bottom")
+        .ticks(5);
 
     var yAxis = d3.svg.axis()
         .scale(y)
@@ -32,12 +30,12 @@ function drawGraph() {
             return y(d.close);
         });
 
-    var svg = d3.select("#my-graph").append("svg")
+    var svg = d3.select("#example-4").append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
-        .attr('viewBox', '0 0 ' + width + ' ' + height)
+        .attr('viewBox', '0 0 ' + (margin.left + margin.right + width) + ' ' + (margin.top + margin.bottom + height))
         .attr('preserveAspectRatio', 'xMidYMid')
-        .attr('data-aspect', width/height)
+        .attr('data-aspect', (margin.left + margin.right + width) / (margin.top + margin.bottom + height))
         .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
@@ -76,17 +74,7 @@ function drawGraph() {
             .attr("class", "line")
             .attr("d", line);
 
-        svg.selectAll("path")
-            .data(data)
-            .enter().append("path")
-            .attr("transform", function(d) {
-                return "translate(" + x(d.date) + "," + y(d.close) + ")";
-            })
-            .attr("d", d3.svg.symbol().type('diamond'));
-
-
-
     });
-}
+};
 
-drawGraph();
+linearGraph();
