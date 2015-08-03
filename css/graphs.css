@@ -28,3 +28,8 @@ body {
     border: 1px solid grey;
     padding: 10px;
 }
+
+.example-container svg{
+    width: 40vw;
+    height: 40vw;
+}
