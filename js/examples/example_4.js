@@ -69,10 +69,20 @@ var linearGraph = function () {
             .style("text-anchor", "end")
             .text("Price ($)");
 
-        svg.append("path")
+        var path = svg.append("path")
             .datum(data)
             .attr("class", "line")
             .attr("d", line);
+
+        var totalLength = path.node().getTotalLength();
+
+        path
+            .attr("stroke-dasharray", totalLength + " " + totalLength)
+            .attr("stroke-dashoffset", totalLength)
+            .transition()
+            .duration(2500)
+            .ease("linear")
+            .attr("stroke-dashoffset", 2*totalLength);
 
     });
 };
