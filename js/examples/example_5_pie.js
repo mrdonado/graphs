@@ -1,4 +1,6 @@
+/*global d3, $*/
 var drawPie = function () {
+    'use strict';
     var width = 960,
         height = 500,
         radius = Math.min(width, height) / 2;
@@ -19,6 +21,9 @@ var drawPie = function () {
     var svg = d3.select("#example-pie").append("svg")
         .attr("width", width)
         .attr("height", height)
+        .attr('viewBox', '0 0 ' + width + ' ' + height)
+        .attr('preserveAspectRatio', 'xMidYMid')
+        .attr('data-aspect', width / height)
         .append("g")
         .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
